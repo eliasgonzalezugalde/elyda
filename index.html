@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
     <link rel="stylesheet" href="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Gowun+Dodum&family=Parisienne&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
             padding: 0;
             font-family: 'Roboto', sans-serif;
             height: 100%;
-            overflow: hidden;
+            overflow-x: hidden;
             background-color: #f9f8f6;
         }
 
@@ -245,50 +246,63 @@
     <script src="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const scroll = new LocomotiveScroll({
-            el: document.querySelector('[data-scroll-container]'),
-            smooth: true,
-            resetNativeScroll: true,
-            lerp: 0.1
-        });
 
-        window.addEventListener('load', () => {
+        document.addEventListener('DOMContentLoaded', () => {
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector('[data-scroll-container]'),
+                smooth: true,
+                smartphone: {
+                    smooth: true
+                },
+                tablet: {
+                    smooth: true
+                }
+            });
+
+            // Recalcular dimensiones al redimensionar la ventana
+            window.addEventListener('resize', () => {
+                scroll.update();
+            });
+
+            // Forzar el scroll inicial
             scroll.scrollTo(0, {
                 duration: 0,
                 disableLerp: true
             });
+
+            // Manejar eventos de scroll
+            scroll.on('scroll', (obj) => {
+                const leavesOne = document.querySelector('.layer.leaves_one');
+                const leavesTwo = document.querySelector('.layer.leaves_two');
+                const background = document.querySelector('.layer.background');
+
+                const scrollY = obj.scroll.y;
+
+                // Hojas 1: Profundidad, opacidad y movimiento hacia la izquierda
+                leavesOne.style.transform = `
+                    scale(${1 + scrollY * 0.0004})
+                    translateZ(${scrollY * 0.15}px)
+                    translateX(${-scrollY * 0.5}px)
+                `;
+                leavesOne.style.opacity = `${1 - scrollY * 0.003}`;
+
+                // Hojas 2: Profundidad, opacidad y movimiento hacia la derecha
+                leavesTwo.style.transform = `
+                    scale(${1 + scrollY * 0.004})
+                    translateZ(${scrollY * 0.30}px)
+                    translateX(${scrollY * 0.3}px)
+                `;
+                leavesTwo.style.opacity = `${1 - scrollY * 0.002}`;
+
+                // Fondo: Movimiento suave hacia abajo
+                const maxTranslateY = 1800;
+                const translateYValue = Math.min(scrollY * 0.8, maxTranslateY);
+                background.style.transform = `scale(${1 + scrollY * 0.0003}) translateY(${translateYValue}px)`;
+            });
         });
 
-        scroll.on('scroll', (obj) => {
-            const leavesOne = document.querySelector('.layer.leaves_one');
-            const leavesTwo = document.querySelector('.layer.leaves_two');
-            const background = document.querySelector('.layer.background');
 
-            const scrollY = obj.scroll.y;
-
-            // Hojas 1: Profundidad, opacidad y movimiento hacia la izquierda
-            leavesOne.style.transform = `
-                scale(${1 + scrollY * 0.0004})
-                translateZ(${scrollY * 0.15}px)
-                translateX(${-scrollY * 0.5}px)
-            `;
-            leavesOne.style.opacity = `${1 - scrollY * 0.003}`;
-
-            // Hojas 2: Profundidad, opacidad y movimiento hacia la derecha
-            leavesTwo.style.transform = `
-                scale(${1 + scrollY * 0.004})
-                translateZ(${scrollY * 0.30}px)
-                translateX(${scrollY * 0.3}px)
-            `;
-            leavesTwo.style.opacity = `${1 - scrollY * 0.002}`;
-
-            // Fondo: Movimiento suave hacia abajo
-            const maxTranslateY = 1800;
-            const translateYValue = Math.min(scrollY * 0.8, maxTranslateY);
-            background.style.transform = `scale(${1 + scrollY * 0.0003}) translateY(${translateYValue}px)`;
-        });
-
-
+        // Temporizador de cuenta regresiva
         const countdownElement = document.getElementById('countdown');
         const weddingDate = new Date('April 26, 2025 15:00:00').getTime();
 
@@ -298,8 +312,8 @@
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000)) / 1000);
 
             countdownElement.innerHTML = `${days} días ${hours} horas ${minutes} minutos ${seconds} segundos`;
 
@@ -310,6 +324,9 @@
         }
 
         const countdownInterval = setInterval(updateCountdown, 1000);
+
+
+        
     </script>
 </body>
 </html>
