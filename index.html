@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Gowun+Dodum&family=Parisienne&display=swap" rel="stylesheet">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f9f8f6;
+        }
+
+        [data-scroll-container] {
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .parallax {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200vh;
+            background-size: cover;
+            background-position: center;
+            overflow: visible;
+        }
+
+        .layer.leaves_one {
+            background-image: url('leaves1.png');
+            z-index: 2;
+            transform-origin: center;
+        }
+        .layer.leaves_two {
+            background-image: url('leaves2.png');
+            z-index: 2;
+            transform-origin: center;
+        }
+
+        .layer.background {
+            background-image: url('couple.jpg');
+            z-index: 1;
+            background-position: center 2280px;
+            transform-origin: center;
+            overflow: visible;
+        }
+        .layer.intro {
+            /*background-image: url('couple.jpg');*/
+            z-index: 1;
+            transform-origin: center;
+            overflow: visible;
+        }
+
+        .sticky-section {
+            position: relative;
+            height: 200vh;
+        }
+
+        .sticky-content {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            background-color: white;
+            font-size: 24px;
+            color: #333;
+            padding: 20px;
+        }
+
+        .wedding-invitation {
+            display: grid;
+            grid-template-columns: 2fr 2fr;
+            gap: 20px;
+            align-items: center;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0px auto;
+        }
+
+        .names {
+            font-size: 4em;
+            font-family: 'Playfair Display', serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            color: #4d3c2e;
+            text-align: right;
+        }
+        .name {
+            position: relative;
+        }
+
+        .names .y {
+            display: block;
+            font-size: 24px;
+            font-weight: 400;
+            color: #6d5844;
+            margin: 60px 0 0 0;
+        }
+
+        .names .lastnames {
+            font-size: 34px;
+            font-family: "Archivo", serif;
+            font-weight: 400;
+            position: absolute;
+            right: 0;
+            bottom: -25px;
+            color: #6d5844;
+        }
+
+        .date {
+            font-size: 72px;
+            font-family: "Gowun Dodum", serif;
+            color: #c5a880;
+            font-weight: 700;
+            font-size: 3.5em;
+            padding-top: 35px;
+        }
+
+        .message {
+            grid-column: span 2;
+            font-size: 1.6em;
+            font-family: "Gowun Dodum", serif;          
+            color: #6d5844;
+            margin-top: 100px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .countdown {
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+            font-family: "Gowun Dodum", serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #4d3c2e;
+            margin-top: 20px;
+            padding: 20px 0;
+        }
+
+        .info-section {
+            background-color: #f9f8f6;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 75px auto;
+            text-align: center;
+        }
+
+        .info-section h2 {
+            font-family: "Parisienne", serif; /* cursiva */
+            font-size: 2.6em;
+            color: #4d3c2e;
+        }
+
+        .info-section p {
+            font-size: 1.2em;
+            font-family: "Gowun Dodum", serif;
+            color: #6d5844;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div data-scroll-container>
+        <div class="sticky-section" data-scroll-section>
+            <div class="sticky-content">
+                <div class="layer background" data-scroll data-scroll-speed="-1"></div>
+                <div class="layer leaves_two" data-scroll data-scroll-speed="-1"></div>
+                <div class="layer leaves_one" data-scroll data-scroll-speed="-2"></div>
+            </div>
+        </div>
+
+        <div class="content" data-scroll-section>
+            <div class="container">
+                <div class="wedding-invitation">
+                    <div>
+                        <div class="names">
+                            <div class="name">
+                                Elías</span> <br/><span class="lastnames">Gonzalez Ugalde</span>
+                            </div>
+                            <span class="y">y</span>
+                            <div class="name">
+                                Daniela</span> <br/><span class="lastnames">Rojas Campos</span>
+                            </div>                             
+                        </div>
+                    </div>
+                    <div class="date">
+                        26<br>04<br>25
+                    </div>
+                    <div class="message">
+                        Nos encantaría que nos acompañen en este día tan especial para celebrar juntos nuestro amor
+                    </div>
+                </div>
+
+                <div class="countdown" id="countdown">
+                    00 días 00 horas 00 minutos 00 segundos
+                </div>
+
+                <div class="info-section">
+                    <h2>Información del evento</h2>
+                    <p><strong>Fecha:</strong> 26 de abril del 2025</p>
+                    <p><strong>Hora:</strong> 3:00 PM</p>
+                    <p><strong>Dirección:</strong> Hotel Los Lagos, La Fortuna</p>
+                    <p>El evento se llevará a cabo en un hermoso hotel con piscinas termales y vistas espectaculares. Habrá una deliciosa comida para compartir juntos y los invitados que lo deseen pueden quedarse a dormir en el hotel.</p>
+                </div>
+
+                <div class="info-section">
+                    <h2>Agenda del día</h2>
+                    <p><strong>3:00 PM:</strong> Ceremonia de bodas</p>
+                    <p><strong>4:30 PM:</strong> Recepción y brindis</p>
+                    <p><strong>6:00 PM:</strong> Cena y fiesta</p>
+                    <p><strong>Noche:</strong> Alojamiento disponible en el hotel</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector('[data-scroll-container]'),
+            smooth: true,
+            resetNativeScroll: true,
+            lerp: 0.1
+        });
+
+        window.addEventListener('load', () => {
+            scroll.scrollTo(0, {
+                duration: 0,
+                disableLerp: true
+            });
+        });
+
+        scroll.on('scroll', (obj) => {
+            const leavesOne = document.querySelector('.layer.leaves_one');
+            const leavesTwo = document.querySelector('.layer.leaves_two');
+            const background = document.querySelector('.layer.background');
+
+            const scrollY = obj.scroll.y;
+
+            // Hojas 1: Profundidad, opacidad y movimiento hacia la izquierda
+            leavesOne.style.transform = `
+                scale(${1 + scrollY * 0.0004})
+                translateZ(${scrollY * 0.15}px)
+                translateX(${-scrollY * 0.5}px)
+            `;
+            leavesOne.style.opacity = `${1 - scrollY * 0.003}`;
+
+            // Hojas 2: Profundidad, opacidad y movimiento hacia la derecha
+            leavesTwo.style.transform = `
+                scale(${1 + scrollY * 0.004})
+                translateZ(${scrollY * 0.30}px)
+                translateX(${scrollY * 0.3}px)
+            `;
+            leavesTwo.style.opacity = `${1 - scrollY * 0.002}`;
+
+            // Fondo: Movimiento suave hacia abajo
+            const maxTranslateY = 1800;
+            const translateYValue = Math.min(scrollY * 0.8, maxTranslateY);
+            background.style.transform = `scale(${1 + scrollY * 0.0003}) translateY(${translateYValue}px)`;
+        });
+
+
+        const countdownElement = document.getElementById('countdown');
+        const weddingDate = new Date('April 26, 2025 15:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days} días ${hours} horas ${minutes} minutos ${seconds} segundos`;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = "¡El gran día ha llegado!";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
