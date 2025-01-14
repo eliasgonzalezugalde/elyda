@@ -1,0 +1,355 @@
+/* ==== ESTILOS BASE ==== */
+
+/* Estiliza el cuerpo y HTML con un fondo suave y asegura que no haya scroll horizontal */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #f9f8f6;
+}
+
+/* Contenedor principal para efectos de scroll */
+[data-scroll-container] {
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Sección parallax */
+.parallax {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Capas para efectos parallax */
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200vh;
+    background-size: cover;
+    background-position: center;
+    overflow: visible;
+}
+
+.layer.leaves_one {
+    background-image: url('leaves1.png');
+    z-index: 2;
+    transform-origin: center;
+}
+
+.layer.leaves_two {
+    background-image: url('leaves2.png');
+    z-index: 2;
+    transform-origin: center;
+}
+
+.layer.background {
+    background-image: url('couple.jpg');
+    z-index: 1;
+    transform-origin: center;
+    overflow: visible;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center 50%;
+}
+
+/* ==== CONTENIDO FIJO ==== */
+.sticky-section {
+    position: relative;
+    height: 200vh;
+}
+
+.sticky-content {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+/* ==== SECCIÓN DE CONTENIDO ==== */
+.content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    background-color: white;
+    font-size: 24px;
+    color: #333;
+    padding: 20px;
+}
+
+/* ==== INVITACIÓN ==== */
+.wedding-invitation {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ==== Reproductor de Audio Personalizado (con íconos de Play/Pause) ==== */
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+/* Botón redondo con íconos de Play y Pause */
+.play-button {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: #b5ad9c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Ícono de Play (triángulo) */
+.play-button::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 16px solid #fff;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    position: absolute;
+}
+
+/* Oculta el triángulo cuando cambia a Pause */
+.play-button.playing::before {
+    display: none;
+}
+
+/* Ícono de Pause (dos barras) */
+.play-button.playing::after {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 2px;
+    box-shadow: 8px 0 0 #fff;
+    margin-left: -6px;
+}
+.song-title {
+    margin-top: 20px;
+    font-family: "Gowun Dodum", serif;
+    font-size: 1.3em;
+}
+.artist {
+    color: #c5a880;
+    font-family: "Gowun Dodum", serif;
+    font-size: 1em;
+}
+
+
+/* ==== TEXTO DE NOMBRES ==== */
+.names {
+    font-size: 3em;
+    font-family: 'Playfair Display', serif;
+    color: #4d3c2e;
+    text-align: right;
+}
+
+.name {
+    position: relative;
+}
+
+.names .y {
+    display: block;
+    font-size: 24px;
+    font-weight: 400;
+    color: #6d5844;
+    margin: 60px 0 0 0;
+}
+
+.names .lastnames {
+    font-size: 0.4em;
+    font-family: "Archivo", serif;
+    font-weight: 400;
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    color: #6d5844;
+}
+
+/* ==== FECHA ==== */
+.date {
+    font-size: 72px;
+    font-family: "Gowun Dodum", serif;
+    color: #c5a880;
+    padding-top: 35px;
+}
+
+/* ==== MENSAJE ==== */
+.message {
+    grid-column: span 2;
+    font-size: 1.6em;
+    font-family: "Gowun Dodum", serif;          
+    color: #6d5844;
+    margin-top: 100px;
+    text-align: center;
+    line-height: 1.6;
+}
+/* ==== Contador ===== */
+/* Contenedor principal */
+.countdown-container {
+    text-align: center;
+    font-family: "Gowun Dodum", serif;  
+    color: #6d5844;
+    margin-top: 50px;
+}
+
+.countdown-title {
+    font-size: 4rem;
+    font-family: "Parisienne", serif;
+    color: #a0a0a0;
+    margin-bottom: 20px;
+}
+
+/* Grid para los números */
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    gap: 5px;
+}
+
+/* Estilos de cada número y etiqueta */
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #4d3c2e;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.countdown-label {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    color: #a0a0a0;
+}
+
+.countdown-separator {
+    font-size: 4rem;
+    color: #c5a880;
+    font-weight: bold;
+}
+
+/* Animación para los números */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==== SECCIÓN DE INFORMACIÓN ==== */
+.info-section {
+    background-color: #f9f8f6;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 75px auto;
+    text-align: center;
+}
+
+.info-section h2 {
+    font-family: "Parisienne", serif;
+    font-size: 2.6em;
+    color: #4d3c2e;
+}
+
+.info-section p {
+    font-size: 1.2em;
+    font-family: "Gowun Dodum", serif;
+    color: #6d5844;
+    line-height: 1.6;
+}
+
+/* ==== MEDIA QUERIES ==== */
+
+/* 📱 Tablets y pantallas medianas */
+@media (min-width: 768px) {
+    .layer.background {
+        background-position: center 60%;
+    }
+
+    .wedding-invitation {
+        grid-template-columns: 2fr 2fr;
+        padding: 40px;
+        max-width: 900px;
+    }
+
+    .names {
+        font-size: 3rem;
+    }
+
+    .date {
+        font-size: 3rem;
+    }
+
+    .message {
+        font-size: 1.6rem;
+        margin-top: 70px;
+    }
+
+    .info-section {
+        padding: 40px;
+        max-width: 900px;
+    }
+    .countdown-grid {
+        gap: 15px;
+    }
+}
+
+/* 💻 Desktops y pantallas grandes */
+@media (min-width: 1024px) {
+    .layer.background {
+        background-position: center 58%;
+    }
+
+    .wedding-invitation {
+        padding: 60px;
+        max-width: 1200px;
+        grid-template-columns: 2fr 2fr;
+    }
+
+    .names {
+        font-size: 5rem;
+    }
+
+    .date {
+        font-size: 5rem;
+    }
+    
+}
