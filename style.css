@@ -39,6 +39,7 @@ body, html {
     background-image: url('leaves1.png');
     z-index: 2;
     transform-origin: center;
+    background-position-x: -360px;
 }
 
 .layer.leaves_two {
@@ -57,6 +58,79 @@ body, html {
     background-size: cover;
     background-position: center 50%;
 }
+
+/* Slider superior e inferior */
+.image-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 50px 0;
+}
+
+.slider-content {
+    display: flex;
+    gap: 8px;
+    transform: translateX(0);
+    will-change: transform;
+}
+
+.image-slider img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+/* Frase central con corazones */
+.center-text {
+    text-align: center;
+    position: relative;
+    margin: 100px 0;
+    display: block;
+}
+
+.center-text h2 {
+    font-size: 2rem;
+    color: #333;
+    font-family: "Parisienne", serif;
+}
+
+.heart {
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.extra-large-heart {
+    font-size: 4rem;
+    position: absolute;
+    right: 20%;
+    transform: translateX(-40%);
+}
+.large-heart {
+    top: -50px;
+    left: 14%;
+    font-size: 3rem;
+    position: absolute;
+    transform: translateX(-50%);
+}
+.medium-heart {
+    font-size: 2rem;
+    position: absolute;
+    transform: translateX(-60%);
+}
+.small-heart {
+    top: -50px;
+    left: 96;
+    font-size: 1.5rem;
+    color: #777;
+}
+.extra-small-heart {
+    font-size: 4rem;
+    position: absolute;
+    right: 60%;
+    transform: translateX(-20%);
+}
+
 
 /* ==== CONTENIDO FIJO ==== */
 .sticky-section {
