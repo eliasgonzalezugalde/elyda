@@ -101,7 +101,7 @@ body, html {
     align-items: center;
     gap: 20px;
     background-color: #fff;
-    padding: 15px 25px;
+    padding: 0px 25px;
     border-radius: 50px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin: 10px 0;
@@ -151,18 +151,18 @@ body, html {
 .song-title {
     margin-top: 20px;
     font-family: "Gowun Dodum", serif;
-    font-size: 1.3em;
+    font-size: 0.8em;
 }
 .artist {
     color: #c5a880;
     font-family: "Gowun Dodum", serif;
-    font-size: 1em;
+    font-size: 0.7em;
 }
 
 
 /* ==== TEXTO DE NOMBRES ==== */
 .names {
-    font-size: 3em;
+    font-size: 2.2em;
     font-family: 'Playfair Display', serif;
     color: #4d3c2e;
     text-align: right;
@@ -192,7 +192,7 @@ body, html {
 
 /* ==== FECHA ==== */
 .date {
-    font-size: 72px;
+    font-size: 3em;
     font-family: "Gowun Dodum", serif;
     color: #c5a880;
     padding-top: 35px;
@@ -201,10 +201,10 @@ body, html {
 /* ==== MENSAJE ==== */
 .message {
     grid-column: span 2;
-    font-size: 1.6em;
+    font-size: 1.2em;
     font-family: "Gowun Dodum", serif;          
     color: #6d5844;
-    margin-top: 100px;
+    margin-top: 25px;
     text-align: center;
     line-height: 1.6;
 }
@@ -240,23 +240,22 @@ body, html {
 }
 
 .countdown-number {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     color: #4d3c2e;
     animation: fadeIn 1s ease-in-out;
 }
 
 .countdown-label {
-    font-size: 1rem;
+    font-size: 0.6rem;
     letter-spacing: 2px;
     margin-top: 5px;
     color: #a0a0a0;
 }
 
 .countdown-separator {
-    font-size: 4rem;
+    font-size: 3rem;
     color: #c5a880;
-    font-weight: bold;
 }
 
 /* Animación para los números */
@@ -285,7 +284,7 @@ body, html {
 
 .info-section h2 {
     font-family: "Parisienne", serif;
-    font-size: 2.6em;
+    font-size: 1.8em;
     color: #4d3c2e;
 }
 
