@@ -107,15 +107,17 @@
         const playBtn = document.getElementById('play-btn');
         const audio = document.getElementById('audio');
 
+        // Asegura que el audio esté mute al cargar
+        audio.muted = true;
+
         let hasStarted = false;
 
         // Reproducir audio tras la primera interacción y desmutear
         const startAudio = () => {
             if (!hasStarted) {
-                audio.muted = false; // Asegúrate de desmutear el audio
+                audio.muted = false; // Desmutea el audio
                 audio.volume = 1; // Establece el volumen al 100%
                 audio.play().then(() => {
-                    console.log('Reproducción automática iniciada.');
                     playBtn.classList.add('playing');
                 }).catch(err => {
                     console.warn('La reproducción fue bloqueada:', err);
@@ -124,10 +126,9 @@
             }
         };
 
-        // Detectar interacción del usuario para iniciar el audio (desktop y móviles)
+        // Detectar interacción del usuario para iniciar el audio
         window.addEventListener('click', startAudio);       // Desktop
         window.addEventListener('touchstart', startAudio);  // Móviles
-        window.addEventListener('scroll', startAudio);      // Cualquier interacción por desplazamiento
 
         // Alternar Play/Pause al hacer clic en el botón
         playBtn.addEventListener('click', () => {
@@ -140,13 +141,6 @@
             }
         });
 
-        // Opcional: Pausar la canción si el usuario sale de la pestaña
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                audio.pause();
-                playBtn.classList.remove('playing');
-            }
-        });
 
         // Opcional: Pausar la canción si el usuario sale de la pestaña
         document.addEventListener('visibilitychange', () => {
