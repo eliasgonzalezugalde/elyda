@@ -80,7 +80,6 @@ body, html {
     object-fit: cover;
 }
 
-
 /* Frase central con corazones */
 .center-text {
     text-align: center;
@@ -130,6 +129,57 @@ body, html {
     right: 60%;
     transform: translateX(-20%);
 }
+
+/* ==== Agenda del día ==== */
+.agenda-section {
+    max-width: 800px;
+    margin: 50px auto 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.agenda-section h2 {
+    font-family: "Parisienne", serif;
+    font-size: 3rem;
+    color: #b5a27f;
+    margin-bottom: 30px;
+}
+
+/* Usamos Grid para centrar los elementos */
+.agenda-item {
+    font-family: "Gowun Dodum", serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.agenda-time {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #a49579;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.agenda-details {
+    text-align: left;
+}
+
+.agenda-details strong {
+    font-size: 1.4rem;
+    color: #4d3c2e;
+    display: block;
+}
+
+.agenda-details p {
+    font-size: 1rem;
+    color: #7a6d5a;
+    margin-top: 5px;
+}
+
 
 
 /* ==== CONTENIDO FIJO ==== */
@@ -347,13 +397,13 @@ body, html {
 
 /* ==== SECCIÓN DE INFORMACIÓN ==== */
 .info-section {
-    background-color: #f9f8f6;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
-    margin: 75px auto;
+    grid-column: span 2;
+    font-size: 1.2em;
+    font-family: "Gowun Dodum", serif;          
+    color: #6d5844;
+    margin-top: 50px;
     text-align: center;
+    line-height: 1.6;
 }
 
 .info-section h2 {
@@ -363,10 +413,126 @@ body, html {
 }
 
 .info-section p {
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: "Gowun Dodum", serif;
     color: #6d5844;
     line-height: 1.6;
+}
+.general-info {
+    padding: 40px 20px 20px 20px;
+    background: rgb(197, 168, 128, 0.15);
+    border-radius: 15px;
+}
+
+/* ==== Sección de Dress Code ==== */
+.info-section h2 {
+    font-family: "Gowun Dodum", serif;
+    font-size: 2rem;
+    color: #b5a27f;
+    margin-bottom: 10px;
+}
+
+.suggestion {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    color: #7a6d5a;
+    margin-bottom: 20px;
+}
+
+.color-palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.color-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==== Botón de Ubicación Profesional ==== */
+.location-button {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.location-button a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    background: rgb(197, 168, 128, 0.15);
+    color: #4d3c2e;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-family: "Gowun Dodum", serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.location-button a:hover {
+    background-color: #a48869;
+    transform: translateY(-2px);
+}
+
+.location-button .icon {
+    font-size: 1.5rem;
+    color: #6d5844;
+}
+
+/* Tabla de Información del Hotel */
+.hotel-info-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto; /* Centramos la tabla */
+    border-collapse: collapse;
+    background-color: #f9f8f6;
+    font-family: "Gowun Dodum", serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 1.2rem;
+}
+
+.hotel-info-table th, .hotel-info-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    color: #4d3c2e;
+}
+
+.hotel-info-table th {
+    background-color: rgb(197, 168, 128, 0.45);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.hotel-info-table td strong {
+    color: #4d3c2e;
+    font-weight: bold;
+}
+
+.hotel-info-table td em {
+    font-style: italic;
+    color: #6d5844;
+}
+
+.hotel-info-table ul {
+    padding-left: 20px;
+    margin: 0;
+    list-style: disc;
+}
+p.label {
+    font-size: 0.9rem;
+    text-align: left;
+    margin: 10px 0 0 10px;
 }
 
 /* ==== MEDIA QUERIES ==== */
