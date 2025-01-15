@@ -233,16 +233,22 @@ body, html {
     transform: translateX(-50%);
 }
 
+.heart img {
+    width: 95%;
+    text-align: center;
+}
+
 .extra-large-heart {
-    font-size: 4rem;
+    /*font-size: 4rem;*/
     position: absolute;
     right: 20%;
+    width: 100px;
     transform: translateX(-40%);
 }
 .large-heart {
     top: -50px;
     left: 14%;
-    font-size: 3rem;
+    /*font-size: 3rem;*/
     position: absolute;
     transform: translateX(-50%);
 }
@@ -254,14 +260,15 @@ body, html {
 .small-heart {
     top: -50px;
     left: 96;
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
     color: #777;
 }
 .extra-small-heart {
-    font-size: 4rem;
+    /*font-size: 4rem;*/
     position: absolute;
     right: 60%;
     transform: translateX(-20%);
+    width: 16%;
 }
 
 /* ==== Agenda del día ==== */
@@ -341,58 +348,14 @@ body, html {
 
 /* ==== INVITACIÓN ==== */
 .wedding-invitation {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 20px;
     align-items: center;
     text-align: center;
     background-color: #ffffff;
     border-radius: 12px;
     max-width: 900px;
     margin: 0 auto;
-    padding-right: 4%;
 }
 
-
-
-
-/* ==== TEXTO DE NOMBRES ==== */
-.names {
-    font-size: 2.2rem;
-    font-family: 'Playfair Display', serif;
-    color: #4d3c2e;
-    text-align: left;
-}
-
-.name {
-    position: relative;
-}
-
-.names .y {
-    display: block;
-    font-size: 24px;
-    font-weight: 400;
-    color: #6d5844;
-    margin: 60px 0 0 0;
-}
-
-.names .lastnames {
-    font-size: 1.4rem;
-    font-family: "Archivo", serif;
-    font-weight: 400;
-    position: absolute;
-    left: 0;
-    bottom: -30px;
-    color: #6d5844;
-}
-
-/* ==== FECHA ==== */
-.date {
-    font-size: 2.7rem;
-    font-family: "Gowun Dodum", serif;
-    color: #c5a880;
-    padding-top: 35px;
-}
 
 /* ==== MENSAJE ==== */
 .inicial_message {
@@ -408,7 +371,6 @@ body, html {
     text-align: center;
     font-family: "Gowun Dodum", serif;  
     color: #6d5844;
-    margin-top: 50px;
 }
 
 .countdown-title {
@@ -444,7 +406,8 @@ body, html {
     font-size: 0.6rem;
     letter-spacing: 2px;
     margin-top: 5px;
-    color: #a0a0a0;
+    color: #747373;
+    font-weight: bold;
 }
 
 .countdown-separator {
@@ -486,7 +449,7 @@ body, html {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .color-circle {
@@ -550,7 +513,7 @@ body, html {
 }
 
 .hotel-info-table th {
-    background-color: rgb(197, 168, 128, 0.45);
+    background-color: #d2bea5;
     color: #fff;
     font-size: 1.1rem;
     font-weight: 600;
@@ -577,6 +540,63 @@ p.label {
     margin: 10px 0 0 10px;
 }
 
+/* ==== Estilos FAQ ==== */
+.faq-container {
+    max-width: 900px;
+    margin: 20px auto 100px auto;
+}
+
+.faq-item {
+    background-color: #f9f8f6;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.faq-question {
+    padding: 15px 20px;
+    font-family: 'Gowun Dodum', serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4d3c2e;
+}
+
+/* La altura y el padding solo se aplican cuando está activo */
+.faq-answer {
+    padding: 0 20px; /* Padding lateral */
+    font-size: 1rem;
+    color: #6d5844;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease, padding-top 0.3s ease, padding-bottom 0.3s ease;
+    cursor: default;
+}
+
+.faq-item.active .faq-answer {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: auto!important;
+    transition: height 0.4s ease, padding-top 0.3s ease, padding-bottom 0.3s ease;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 /* ==== MEDIA QUERIES ==== */
 
 /* 📱 Tablets y pantallas medianas */
@@ -584,26 +604,15 @@ p.label {
     .layer.background {
         background-position: center 60%;
     }
-
     .wedding-invitation {
         grid-template-columns: 2fr 2fr;
         padding: 40px;
         max-width: 900px;
     }
-
-    .names {
-        font-size: 3rem;
-    }
-
-    .date {
-        font-size: 3rem;
-    }
-
     .message {
         font-size: 1.6rem;
         margin-top: 70px;
     }
-
     .info-section {
         padding: 40px;
         max-width: 900px;
@@ -624,13 +633,4 @@ p.label {
         max-width: 1200px;
         grid-template-columns: 2fr 2fr;
     }
-
-    .names {
-        font-size: 5rem;
-    }
-
-    .date {
-        font-size: 5rem;
-    }
-    
 }
