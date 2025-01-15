@@ -53,7 +53,7 @@ body, html {
 .layer.audio-player {
     z-index: 1;
     top: 10%;
-    left: 15%;
+    left: 8%;
     width: auto;
     height: auto;
 }
@@ -112,12 +112,12 @@ body, html {
 .song-title {
     margin-top: 20px;
     font-family: "Gowun Dodum", serif;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 .artist {
     color: #c5a880;
     font-family: "Gowun Dodum", serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .audio-player {
     pointer-events: all;
