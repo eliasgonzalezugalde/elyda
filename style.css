@@ -412,8 +412,8 @@ body, html {
 }
 
 .countdown-title {
-    font-size: 4rem;
-    font-family: "Parisienne", serif;
+    font-size: 4rem!important;
+    font-family: "Parisienne", serif!important;
     color: #a0a0a0;
     margin-bottom: 20px;
 }
