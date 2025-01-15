@@ -4,7 +4,6 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
     height: 100%;
     overflow-x: hidden;
     background-color: #f9f8f6;
@@ -40,12 +39,112 @@ body, html {
     z-index: 2;
     transform-origin: center;
     background-position-x: -360px;
+    pointer-events: none;
 }
 
 .layer.leaves_two {
     background-image: url('leaves2.png');
     z-index: 2;
     transform-origin: center;
+    pointer-events: none;
+}
+
+/* ==== Reproductor de Audio Personalizado (con íconos de Play/Pause) ==== */
+.layer.audio-player {
+    z-index: 1;
+    top: 10%;
+    left: 15%;
+    width: auto;
+    height: auto;
+}
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    padding: 0px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+/* Botón redondo con íconos de Play y Pause */
+.play-button {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: #b5ad9c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Ícono de Play (triángulo) */
+.play-button::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 16px solid #fff;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    position: absolute;
+}
+
+/* Oculta el triángulo cuando cambia a Pause */
+.play-button.playing::before {
+    display: none;
+}
+
+/* Ícono de Pause (dos barras) */
+.play-button.playing::after {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 2px;
+    box-shadow: 8px 0 0 #fff;
+    margin-left: -6px;
+}
+.song-title {
+    margin-top: 20px;
+    font-family: "Gowun Dodum", serif;
+    font-size: 1.6rem;
+}
+.artist {
+    color: #c5a880;
+    font-family: "Gowun Dodum", serif;
+    font-size: 1.2rem;
+}
+.audio-player {
+    pointer-events: all;
+    position: fixed;
+    z-index: 999;
+}
+
+
+.layer.inicial_text {
+    font-size: 54px;
+    z-index: 1;
+    top: 30%;
+    left: 27%;
+    width: auto;
+    height: auto;
+    color: #FFF;
+}
+
+.layer.inicial_text h1 {
+    font-family: "Parisienne", serif;
+    font-family: "Gowun Dodum", serif;
+    font-size: 1em;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
 }
 
 .layer.background {
@@ -57,6 +156,41 @@ body, html {
     width: 100%;
     background-size: cover;
     background-position: center 50%;
+}
+
+/* ==== SECCIÓN DE INFORMACIÓN ==== */
+.info-section {
+    grid-column: span 2;
+    font-size: 1.2rem;
+    font-family: "Gowun Dodum", serif;          
+    color: #6d5844;
+    padding: 25px 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.info-section h2 {
+    font-family: "Parisienne", serif;
+    font-size: 1.8rem;
+    color: #4d3c2e;
+}
+
+.info-section p {
+    font-size: 1rem;
+    font-family: "Gowun Dodum", serif;
+    color: #6d5844;
+    line-height: 1.6;
+}
+
+.general-info {
+    padding: 40px 20px 20px 20px;
+    background: rgb(197, 168, 128, 0.15);
+    border-radius: 15px;
+    font-size: 1.1rem;
+}
+
+.dress-code {
+    padding: 0 50px;
 }
 
 /* Slider superior e inferior */
@@ -219,74 +353,12 @@ body, html {
     padding-right: 4%;
 }
 
-/* ==== Reproductor de Audio Personalizado (con íconos de Play/Pause) ==== */
-.audio-player {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background-color: #fff;
-    padding: 0px 25px;
-    border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin: 10px 0;
-}
 
-/* Botón redondo con íconos de Play y Pause */
-.play-button {
-    width: 60px;
-    height: 60px;
-    border: none;
-    border-radius: 50%;
-    background-color: #b5ad9c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-}
-
-/* Ícono de Play (triángulo) */
-.play-button::before {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 16px solid #fff;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    position: absolute;
-}
-
-/* Oculta el triángulo cuando cambia a Pause */
-.play-button.playing::before {
-    display: none;
-}
-
-/* Ícono de Pause (dos barras) */
-.play-button.playing::after {
-    content: '';
-    width: 4px;
-    height: 20px;
-    background-color: #fff;
-    position: absolute;
-    border-radius: 2px;
-    box-shadow: 8px 0 0 #fff;
-    margin-left: -6px;
-}
-.song-title {
-    margin-top: 20px;
-    font-family: "Gowun Dodum", serif;
-    font-size: 0.8em;
-}
-.artist {
-    color: #c5a880;
-    font-family: "Gowun Dodum", serif;
-    font-size: 0.7em;
-}
 
 
 /* ==== TEXTO DE NOMBRES ==== */
 .names {
-    font-size: 2.2em;
+    font-size: 2.2rem;
     font-family: 'Playfair Display', serif;
     color: #4d3c2e;
     text-align: left;
@@ -305,7 +377,7 @@ body, html {
 }
 
 .names .lastnames {
-    font-size: 0.4em;
+    font-size: 1.4rem;
     font-family: "Archivo", serif;
     font-weight: 400;
     position: absolute;
@@ -316,19 +388,17 @@ body, html {
 
 /* ==== FECHA ==== */
 .date {
-    font-size: 2.7em;
+    font-size: 2.7rem;
     font-family: "Gowun Dodum", serif;
     color: #c5a880;
     padding-top: 35px;
 }
 
 /* ==== MENSAJE ==== */
-.message {
-    grid-column: span 2;
-    font-size: 1.2em;
+.inicial_message {
+    font-size: 1.5rem;
     font-family: "Gowun Dodum", serif;          
     color: #6d5844;
-    margin-top: 50px;
     text-align: center;
     line-height: 1.6;
 }
@@ -395,39 +465,7 @@ body, html {
 }
 
 
-/* ==== SECCIÓN DE INFORMACIÓN ==== */
-.info-section {
-    grid-column: span 2;
-    font-size: 1.2em;
-    font-family: "Gowun Dodum", serif;          
-    color: #6d5844;
-    margin-top: 50px;
-    text-align: center;
-    line-height: 1.6;
-}
 
-.info-section h2 {
-    font-family: "Parisienne", serif;
-    font-size: 1.8em;
-    color: #4d3c2e;
-}
-
-.info-section p {
-    font-size: 1em;
-    font-family: "Gowun Dodum", serif;
-    color: #6d5844;
-    line-height: 1.6;
-}
-
-.general-info {
-    padding: 40px 20px 20px 20px;
-    background: rgb(197, 168, 128, 0.15);
-    border-radius: 15px;
-}
-
-.dress-code {
-    padding: 0 50px;
-}
 
 /* ==== Sección de Dress Code ==== */
 .info-section h2 {
