@@ -299,6 +299,7 @@ i {
     margin: 100px 0;
     display: block;
     margin: 50px 0;
+    padding: 0 0 50px 0;
 }
 
 .heart {
@@ -736,5 +737,11 @@ p.label {
         padding: 60px;
         max-width: 1200px;
         grid-template-columns: 2fr 2fr;
+    }
+    .confirmation-date {
+        max-width: 64%;
+    }
+    .buttons-inline {
+        width: 65%;
     }
 }
