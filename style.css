@@ -22,6 +22,10 @@ body, html {
     overflow: hidden;
 }
 
+i {
+    display: block;
+}
+
 /* Capas para efectos parallax */
 .layer {
     position: absolute;
@@ -183,14 +187,37 @@ body, html {
 }
 
 .general-info {
-    padding: 40px 20px 20px 20px;
+    /*padding: 40px 20px 20px 20px;
     background: rgb(197, 168, 128, 0.15);
-    border-radius: 15px;
+    border-radius: 15px;*/
     font-size: 1.1rem;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f8f6;
+    border-radius: 8px;
+    margin: 25px;
+}
+.general-info i {
+    font-size: 2rem;
+    margin-bottom: 5px;
 }
 
 .dress-code {
     padding: 0 50px;
+}
+
+.confirmatio-date {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f8f6;
+    border-radius: 8px;
+    margin: 25px;
+}
+.confirmatio-date i {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+.confirmatio-date h3 {
+    font-weight: bold;
 }
 
 /* Slider superior e inferior */
@@ -222,10 +249,17 @@ body, html {
     display: block;
 }
 
-.center-text h2 {
+.center-text h2, .center-text-two h2 {
     font-size: 2.4rem;
     color: #333;
     font-family: "Parisienne", serif;
+}
+.center-text-two {
+    text-align: center;
+    position: relative;
+    margin: 100px 0;
+    display: block;
+    margin: 50px 0;
 }
 
 .heart {
@@ -233,42 +267,40 @@ body, html {
     transform: translateX(-50%);
 }
 
-.heart img {
-    width: 95%;
+.heart i {
     text-align: center;
+    color: #d0b396;
 }
 
 .extra-large-heart {
-    /*font-size: 4rem;*/
     position: absolute;
     right: 20%;
-    width: 100px;
+    font-size: 6rem;
     transform: translateX(-40%);
 }
 .large-heart {
+    position: absolute;
     top: -50px;
     left: 14%;
-    /*font-size: 3rem;*/
-    position: absolute;
+    font-size: 5rem;
     transform: translateX(-50%);
 }
 .medium-heart {
-    font-size: 2rem;
     position: absolute;
+    font-size: 4rem;
     transform: translateX(-60%);
 }
 .small-heart {
+    position: absolute;
     top: -50px;
     left: 96;
-    /*font-size: 1.5rem;*/
-    color: #777;
+    font-size: 3rem;
 }
 .extra-small-heart {
-    /*font-size: 4rem;*/
     position: absolute;
     right: 60%;
+    font-size: 2rem;
     transform: translateX(-20%);
-    width: 16%;
 }
 
 /* ==== Agenda del día ==== */
@@ -355,7 +387,9 @@ body, html {
     max-width: 900px;
     margin: 0 auto;
 }
-
+.wedding-invitation img {
+    width: 100%;
+}
 
 /* ==== MENSAJE ==== */
 .inicial_message {
@@ -463,10 +497,11 @@ body, html {
 .location-button {
     text-align: center;
     margin: 40px 0;
+    
 }
 
 .location-button a {
-    display: inline-flex;
+    display: block;
     align-items: center;
     gap: 10px;
     text-decoration: none;
@@ -479,10 +514,19 @@ body, html {
     font-weight: 500;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 80px;
+    padding: 1rem;
+    font-size: 1.6rem;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    font-weight: 600;
+    
 }
 
 .location-button a:hover {
-    background-color: #a48869;
+    background-color: #ccb091;
     transform: translateY(-2px);
 }
 
@@ -543,7 +587,7 @@ p.label {
 /* ==== Estilos FAQ ==== */
 .faq-container {
     max-width: 900px;
-    margin: 20px auto 100px auto;
+    margin: 20px auto;
 }
 
 .faq-item {
@@ -582,8 +626,6 @@ p.label {
     height: auto!important;
     transition: height 0.4s ease, padding-top 0.3s ease, padding-bottom 0.3s ease;
 }
-
-
 
 @keyframes fadeIn {
     from {
