@@ -57,7 +57,7 @@ i {
 .layer.audio-player {
     z-index: 1;
     top: 10%;
-    left: 8%;
+    left: 10%;
     width: auto;
     height: auto;
 }
