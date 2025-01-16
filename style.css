@@ -187,15 +187,11 @@ i {
 }
 
 .general-info {
-    /*padding: 40px 20px 20px 20px;
-    background: rgb(197, 168, 128, 0.15);
-    border-radius: 15px;*/
     font-size: 1.1rem;
-
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: #f9f8f6;
     border-radius: 8px;
-    margin: 25px;
+    padding: 25px;
 }
 .general-info i {
     font-size: 2rem;
