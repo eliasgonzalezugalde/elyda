@@ -215,6 +215,38 @@ i {
 .confirmatio-date h3 {
     font-weight: bold;
 }
+.info-card {
+    padding: 0;
+}
+.card {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #f9f8f6;
+    font-family: "Gowun Dodum", serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    border: 0;
+}
+.card h2 {
+    background-color: #d2bea5;
+    color: #fff!important;
+    font-size: 1.1rem!important;
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
+    padding: 15px 20px;
+}
+.card p {
+    padding: 5px 20px;
+    text-align: left;
+    color: #4d3c2e;
+    font-size: 1.2rem;
+}
 
 /* Slider superior e inferior */
 .image-slider {
