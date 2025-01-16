@@ -393,12 +393,12 @@
                 const bottomSlider = document.querySelector('.bottom-slider .slider-content');
 
                 // Movimiento horizontal del slider superior (hacia la izquierda)
-                const topSliderSpeed = obj.scroll.y * 0.11;
+                const topSliderSpeed = obj.scroll.y * 0.14;
                 topSlider.style.transform = `translateX(-${topSliderSpeed}px)`;
 
                 // Movimiento horizontal del slider inferior (hacia la derecha desde la izquierda)
                 const bottomSliderInitialOffset = -window.innerWidth; // Ajuste inicial hacia la izquierda
-                const bottomSliderSpeed = obj.scroll.y * 0.11;
+                const bottomSliderSpeed = obj.scroll.y * 0.14;
                 bottomSlider.style.transform = `translateX(${bottomSliderInitialOffset + bottomSliderSpeed}px)`;
             });
 
