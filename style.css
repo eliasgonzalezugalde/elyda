@@ -521,6 +521,7 @@ i {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    justify-items: center;
     justify-content: center;
     margin-bottom: 50px;
 }
@@ -692,6 +693,9 @@ p.label {
         padding: 40px;
         max-width: 900px;
     }
+    .wedding-invitation img {
+        width: 50%;
+    }
     .message {
         font-size: 1.6rem;
         margin-top: 70px;
@@ -699,9 +703,18 @@ p.label {
     .info-section {
         padding: 40px;
         max-width: 900px;
+        margin: 0 auto;
     }
     .countdown-grid {
         gap: 15px;
+    }
+    .location-button {
+        width: 70%;
+        margin: 0 auto;
+    }
+    .buttons-inline {
+        width: 70%;
+        margin: 0 auto;
     }
 }
 
@@ -710,7 +723,9 @@ p.label {
     .layer.background {
         background-position: center 58%;
     }
-
+    .image-slider {
+        display: none;
+    }
     .wedding-invitation {
         padding: 60px;
         max-width: 1200px;
