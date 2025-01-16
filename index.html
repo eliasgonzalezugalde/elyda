@@ -80,11 +80,11 @@
 
                 <!-- Frase central con corazones -->
                 <div class="center-text">
-                    <span class="heart extra-large-heart" data-scroll data-scroll-speed="4"><i class="bi bi-heart-fill"></i></span>
-                    <span class="heart large-heart" data-scroll data-scroll-speed="3"><i class="bi bi-heart-fill"></i></span>
+                    <span class="heart extra-large-heart" data-scroll data-scroll-speed="4"><i class="bi bi-suit-heart-fill"></i></i></span>
+                    <span class="heart large-heart" data-scroll data-scroll-speed="3"><i class="bi bi-suit-heart-fill"></i></span>
                     <h2 data-scroll data-scroll-speed="0.1">¡La historia apenas comienza!</h2>
-                    <span class="heart medium-heart" data-scroll data-scroll-speed="1.5"><i class="bi bi-heart-fill"></i></span>
-                    <span class="heart small-heart" data-scroll data-scroll-speed="0.6"><i class="bi bi-heart-fill"></i></span>
+                    <span class="heart medium-heart" data-scroll data-scroll-speed="1.5"><i class="bi bi-suit-heart-fill"></i></span>
+                    <span class="heart small-heart" data-scroll data-scroll-speed="0.6"><i class="bi bi-suit-heart-fill"></i></span>
                     <span class="heart extra-small-heart" data-scroll data-scroll-speed="0.5"><i class="bi bi-suit-heart-fill"></i></span>
                 </div>
 
@@ -115,7 +115,7 @@
                 <div class="agenda-section">
                     <h2>Agenda</h2>
                     <div class="agenda-item">
-                        <div class="agenda-time">2:00 p. m.</div>
+                        <div class="agenda-time">1:30 p. m.</div>
                         <div class="agenda-details">
                             <strong>Check-In</strong>
                             <p>Recepción</p>
@@ -247,7 +247,7 @@
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">¿A qué hora empieza la ceremonia?</div>
-                            <div class="faq-answer">La ceremonia comienza a las 2:30 p. m. en el mirador del hotel. Recomendamos llegar alrededor de una hora antes para evitar contratiempos y asegurarse de estar a tiempo para la ceremonia a las 2:30 p.m.</div>
+                            <div class="faq-answer">La ceremonia comienza a las 2:30 p. m. en el mirador del hotel. Recomendamos llegar alrededor de una hora antes para evitar contratiempos.</div>
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">¿Qué tipo de ropa es apropiada?</div>
@@ -259,7 +259,7 @@
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">¿Qué actividades habrá después de la ceremonia?</div>
-                            <div class="faq-answer">Después de la ceremonia, compartiremos en el mirador durante 1 - 2 horas y bajaremos al restaurante a cenar.</div>
+                            <div class="faq-answer">Después de la ceremonia, compartiremos en el mirador durante 1 - 2 horas y bajaremos al restaurante a cenar para luego disfrutar de las piscinas.</div>
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">¿Qué incluye el acceso al hotel?</div>
@@ -279,7 +279,7 @@
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">¿Qué hacer en caso de lluvia?</div>
-                            <div class="faq-answer">La ceremonia será al aire libre. Recomendamos llevar capa o sombrilla en caso de querer acompañarnos bajo la lluvia.</div>
+                            <div class="faq-answer">La ceremonia será al aire libre, por lo que recomendamos llevar capa o sombrilla si desean acompañarnos bajo la lluvia. <strong>Para la cena, no se permitirá el acceso mojados ni en traje de baño</strong>, así que consideren traer ropa extra si planean disfrutar bajo la lluvia.</div>
                         </div>
                     </div>
                 </div>
@@ -459,6 +459,19 @@
             const answer = item.querySelector('.faq-answer');
 
             question.addEventListener('click', () => {
+                // Cerrar todos los demás ítems
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        otherAnswer.style.height = `${otherAnswer.scrollHeight}px`;
+                        setTimeout(() => {
+                            otherAnswer.style.height = '0';
+                        }, 1);
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Alternar el estado del ítem actual
                 if (item.classList.contains('active')) {
                     // Animación de cierre
                     answer.style.height = `${answer.scrollHeight}px`;
@@ -480,7 +493,6 @@
                 });
             });
         });
-
         
     </script>
 </body>

@@ -688,6 +688,9 @@ p.label {
     .layer.background {
         background-position: center 60%;
     }
+    .layer.audio-player {
+        left: 32%;
+    }
     .wedding-invitation {
         grid-template-columns: 2fr 2fr;
         padding: 40px;
@@ -725,6 +728,9 @@ p.label {
     }
     .image-slider {
         display: none;
+    }
+    .layer.audio-player {
+        left: 30%;
     }
     .wedding-invitation {
         padding: 60px;
